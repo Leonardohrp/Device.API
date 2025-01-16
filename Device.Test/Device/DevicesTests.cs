@@ -1,6 +1,6 @@
-﻿namespace Device.Test;
+﻿namespace Device.Test.Device;
 
-public class Tests
+public class DevicesTests
 {
     [SetUp]
     public void Setup()
