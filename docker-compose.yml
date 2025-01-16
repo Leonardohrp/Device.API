@@ -1,0 +1,6 @@
+services:
+  device.api:
+    image: ${DOCKER_REGISTRY-}deviceapi
+    build:
+      context: .
+      dockerfile: Device.API/Dockerfile
