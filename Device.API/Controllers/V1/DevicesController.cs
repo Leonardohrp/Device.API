@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Device.API.Controllers.V1;
 
-[ApiExplorerSettings(GroupName = "v1.Devices")]
+/// <summary>
+/// 
+/// </summary>
 [Route("api/v1/[controller]")]
 [ApiController]
 public class DevicesController(IDevicesService devicesService) : ControllerBase
