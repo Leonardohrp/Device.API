@@ -1,6 +1,35 @@
+version: '3.4'
+
 services:
-  device.api:
-    image: ${DOCKER_REGISTRY-}deviceapi
-    build:
-      context: .
-      dockerfile: Device.API/Dockerfile
+    device.api:
+        build:
+            context: .
+            dockerfile: Device.API/Dockerfile
+        ports:
+            - "8080:8080"
+            - "8081:8081" 
+        depends_on:
+            - sqlserver
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+        networks:
+            - devicenetwork
+        restart: on-failure
+
+    sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        environment:
+            SA_PASSWORD: "myStrong(!)Password"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
+        volumes:
+            - sqlvolume:/var/opt/mssql
+        networks:
+            - devicenetwork
+
+networks:
+    devicenetwork:
+    
+volumes:
+    sqlvolume:

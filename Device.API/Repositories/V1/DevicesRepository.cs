@@ -1,8 +1,15 @@
-﻿namespace Device.API.Repositories.V1;
+﻿
+using Device.API.Contexts;
+using Microsoft.EntityFrameworkCore;
 
-/// <summary>
-/// 
-/// </summary>
-public class DevicesRepository : IDevicesRepository
+namespace Device.API.Repositories.V1;
+
+public class DevicesRepository(DevicesDbContext context) : IDevicesRepository
 {
+    private readonly DevicesDbContext _context = context;
+    public async Task GetAll()
+    {
+        var a = await _context.Devices.Where(_ => true).ToListAsync();
+        var b = "";
+    }
 }
