@@ -1,6 +1,7 @@
 using Device.API.Configuration;
 using Device.API.Contexts;
 using Device.API.Contexts.Dtos.Devices;
+using Device.API.Mappings.V1;
 using Device.API.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerConfiguration();
 builder.Services.RegisterServices(builder.Configuration);
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+builder.Services.AddAutoMapper(typeof(DevicesMappingProfile));
 
 var app = builder.Build();
 

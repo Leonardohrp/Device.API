@@ -3,8 +3,8 @@
 public class DevicesDto
 {
     public int Id { get; set; }
-    public required string Name { get; set; }
-    public required string Brand { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Brand { get; set; } = string.Empty;
     public int State { get; set; }
     public DateTime CreationTime { get; set; }
 }
