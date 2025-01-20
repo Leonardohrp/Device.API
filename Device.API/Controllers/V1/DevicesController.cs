@@ -30,7 +30,7 @@ public class DevicesController(IDevicesService devicesService) : ControllerBase
     {
         var createdDevice = await _devicesService.Create(device);
 
-        return Created();
+        return Ok(createdDevice);
     }
 
     [HttpPut("{id}")]
